@@ -11,8 +11,8 @@ function createFeatures(earthquakeData) {
         layer.bindPopup(feature.properties.place + "<hr />" + new Date(feature.properties.time));
     }
 
-    // function chooseColor() {
-        
+    // function chooseColor(depth) {
+    //     switch        
     // }
 
     var earthquakes = L.geoJSON(earthquakeData, {
@@ -20,7 +20,8 @@ function createFeatures(earthquakeData) {
         pointToLayer: function(feature, latlng) {
             var circle = L.circle(latlng, {
                 radius: feature.properties.mag * 15000,
-                color: "#2dc4b2"
+                color: "#2dc4b2",
+                fillOpacity: 0.75
                 // fillColor: chooseColor(feature.geometry.coordinates[3])
             });
                 return circle;
