@@ -80,25 +80,34 @@ function createMap(earthquakes) {
         accessToken: API_KEY
     });
 
-    var grayCanvas = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
-	    attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
-        tileSize: 512,
-        zoomOffset: -1
+    var ocean = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
+	    attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
+	    maxZoom: 16
     });
 
-    var ocean = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}', {
-	    attribution: 'Tiles &copy; Esri &mdash; Sources: GEBCO, NOAA, CHS, OSU, UNH, CSUMB, National Geographic, DeLorme, NAVTEQ, and Esri',
-	    tileSize: 512,
-        zoomOffset: -1
+    var night = L.tileLayer('https://map1.vis.earthdata.nasa.gov/wmts-webmerc/VIIRS_CityLights_2012/default/{time}/{tilematrixset}{maxZoom}/{z}/{y}/{x}.{format}', {
+	    attribution: 'Imagery provided by services from the Global Imagery Browse Services (GIBS), operated by the NASA/GSFC/Earth Science Data and Information System (<a href="https://earthdata.nasa.gov">ESDIS</a>) with funding provided by NASA/HQ.',
+	    bounds: [[-85.0511287776, -179.999999975], [85.0511287776, 179.999999975]],
+	    minZoom: 1,
+	    maxZoom: 8,
+	    format: 'jpg',
+	    time: '',
+	    tilematrixset: 'GoogleMapsCompatible_Level'
+    });
+
+    var topography = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+	    maxZoom: 17,
+	    attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
     });
 
     var baseMaps = {
+        "Topography": topography,
         "Light Map": lightmap,
         "Dark Map": darkmap,
-        "Grayscale": grayCanvas,
         "Satellite": satellite,
         "Outdoors": outdoors,
-        "Ocean": ocean
+        "Ocean": ocean,
+        "Night": night
     };
 
     var tectonicPlatesLayer = new L.LayerGroup();
