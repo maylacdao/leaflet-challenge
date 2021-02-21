@@ -1,8 +1,15 @@
-const url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson";
+const earthquakeURL = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson";
 
-d3.json(url, function(data) {
+const tectonicPlatesURL = "https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json";
+
+d3.json(earthquakeURL, function(data) {
     console.log(data.features);
     createFeatures(data.features);
+});
+
+d3.json(tectonicPlatesURL, function(data) {
+    console.log(data.features);
+    // createFeatures(data.features);
 });
 
 function createFeatures(earthquakeData) {
@@ -64,6 +71,7 @@ function createMap(earthquakes) {
     };
 
     var overlayMaps = {
+        // "Tectonic Plates":tectonicPlates,
         "Earthquakes":earthquakes
     };
 
