@@ -105,7 +105,7 @@ function createMap(earthquakes) {
     var map = L.map("mapid", {
         center: [0,0],
         zoom: 2,
-        layers: [darkmap, earthquakes]
+        layers: [outdoors, earthquakes, tectonicPlatesLayer]
     });
 
     var legend = L.control({
