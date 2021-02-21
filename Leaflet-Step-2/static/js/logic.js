@@ -7,10 +7,7 @@ d3.json(earthquakeURL, function(data) {
     createFeatures(data.features);
 });
 
-d3.json(tectonicPlatesURL, function(data) {
-    console.log(data.features);
-    // createFeatures(data.features);
-});
+
 
 function createFeatures(earthquakeData) {
 
@@ -70,8 +67,18 @@ function createMap(earthquakes) {
         "Dark Map": darkmap
     };
 
+    var tectonicPlatesLayer = new L.LayerGroup();
+
+    d3.json(tectonicPlatesURL, function(tectonicData) {
+        console.log(tectonicData.features);
+        L.geoJSON(tectonicData, {
+            color: "#e7298a",
+            weight:1
+        }).addTo(tectonicPlatesLayer)
+    });
+
     var overlayMaps = {
-        // "Tectonic Plates":tectonicPlates,
+        "Tectonic Plates":tectonicPlatesLayer,
         "Earthquakes":earthquakes
     };
 
