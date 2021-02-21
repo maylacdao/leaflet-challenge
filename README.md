@@ -10,4 +10,18 @@ The USGS is interested in building a new set of tools that will allow them visua
 
 ## OBJECTIVE
 
-Visualize earthquake data
+Visualize earthquake data that is collected and compiled continuously by the USGS.
+
+## TOOLS
+
+- D3
+- JavaScript
+- Leaflet
+- Mapbox
+- HTML
+- CSS
+- Bootstrap
+
+## FINAL OUTPUT
+
+The final webpage can be viewed here.
