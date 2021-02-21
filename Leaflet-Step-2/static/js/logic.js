@@ -155,7 +155,7 @@ function createMap(earthquakes) {
             + depths[i]
             + (depths[i + 1] ? "&ndash;" 
             + depths[i + 1] 
-            + "<br />" : "+");
+            + "<br />" : "+" + "<br /><h4>Earthquake Depth</h4>" );
     }
     return div;
     };
@@ -163,7 +163,7 @@ function createMap(earthquakes) {
     legend.addTo(map);
 
     L.control.layers(baseMaps, overlayMaps, {
-        collapsed: false
+        collapsed: true
     }).addTo(map);
 
     
