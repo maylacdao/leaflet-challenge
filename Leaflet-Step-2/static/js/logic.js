@@ -80,11 +80,25 @@ function createMap(earthquakes) {
         accessToken: API_KEY
     });
 
+    var grayCanvas = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+	    attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+        tileSize: 512,
+        zoomOffset: -1
+    });
+
+    var ocean = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}', {
+	    attribution: 'Tiles &copy; Esri &mdash; Sources: GEBCO, NOAA, CHS, OSU, UNH, CSUMB, National Geographic, DeLorme, NAVTEQ, and Esri',
+	    tileSize: 512,
+        zoomOffset: -1
+    });
+
     var baseMaps = {
         "Light Map": lightmap,
         "Dark Map": darkmap,
+        "Grayscale": grayCanvas,
         "Satellite": satellite,
-        "Outdoors": outdoors
+        "Outdoors": outdoors,
+        "Ocean": ocean
     };
 
     var tectonicPlatesLayer = new L.LayerGroup();
