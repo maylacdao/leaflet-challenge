@@ -12,7 +12,11 @@ d3.json(earthquakeURL, function(data) {
 function createFeatures(earthquakeData) {
 
     function onEachFeature(feature, layer) {
-        layer.bindPopup(feature.properties.place + "<hr />" + new Date(feature.properties.time));
+        layer.bindPopup("<h2> Location: " 
+                        + feature.properties.place 
+                        + "</h2><hr /><h3> Magnitude: " 
+                        + feature.properties.mag 
+                        + " | Depth: " + feature.geometry.coordinates[2] + "</h3>");
     }
 
     function getColor(d) {
