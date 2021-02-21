@@ -12,6 +12,10 @@ The USGS is interested in building a new set of tools that will allow them visua
 
 Visualize earthquake data that is collected and compiled continuously by the USGS.
 
+## DATA SOURCE
+
+URL: [USGS Data](https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson)
+
 ## TOOLS
 
 - D3
@@ -24,4 +28,4 @@ Visualize earthquake data that is collected and compiled continuously by the USG
 
 ## FINAL OUTPUT
 
-The final webpage can be viewed here.
+The final webpage can be viewed [here](https://maylacdao.github.io/leaflet-challenge/).
