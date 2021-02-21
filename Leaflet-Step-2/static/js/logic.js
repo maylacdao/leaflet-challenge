@@ -71,10 +71,20 @@ function createMap(earthquakes) {
         accessToken: API_KEY
     });
     
+    var outdoors = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox/outdoors-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: API_KEY
+    });
+
     var baseMaps = {
         "Light Map": lightmap,
         "Dark Map": darkmap,
-        "Satellite": satellite
+        "Satellite": satellite,
+        "Outdoors": outdoors
     };
 
     var tectonicPlatesLayer = new L.LayerGroup();
@@ -82,8 +92,8 @@ function createMap(earthquakes) {
     d3.json(tectonicPlatesURL, function(tectonicData) {
         console.log(tectonicData.features);
         L.geoJSON(tectonicData, {
-            color: "#e7298a",
-            weight:1
+            color: "#980043",
+            weight:2
         }).addTo(tectonicPlatesLayer)
     });
 
