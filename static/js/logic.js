@@ -139,6 +139,11 @@ function createMap(earthquakes) {
         layers: [night, earthquakes, tectonicPlatesLayer]
     });
 
+    var clusters = L.markerClusterGroup();
+    clusters.addLayer(earthquakes)
+
+    map.addLayer(clusters);
+
     var legend = L.control({
         position: "bottomright"
     });
