@@ -133,11 +133,14 @@ function createMap(earthquakes) {
         "Earthquakes":earthquakes
     };
 
+
     var map = L.map("mapid", {
         center: [0,0],
         zoom: 2,
         layers: [night, earthquakes, tectonicPlatesLayer]
     });
+
+
 
     var clusters = L.markerClusterGroup();
     clusters.addLayer(earthquakes)
