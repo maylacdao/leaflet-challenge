@@ -28,4 +28,4 @@ URL: [USGS Data](https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_m
 
 ## FINAL OUTPUT
 
-The final webpage can be viewed [here](https://maylacdao.github.io/leaflet-challenge/).
+The final webpage can be viewed [here](https://maylacdao.github.io/mapping-earthquakes-around-the-world/).
